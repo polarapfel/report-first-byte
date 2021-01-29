@@ -22,7 +22,9 @@ Add-Content -Path $reportpath -Value $From
 
 for ($num = 1 ; $num -le $requests ; $num++)
 {
-    (Get-Date).datetime >> $reportpath
+    $datetime = Get-Date -f s
+    $datetime = [string]::join("",($datetime.Split("`n")))
+    Add-Content -Path $reportpath -Value $datetime -NoNewline
     curl -w "@$($csvformat)" -r 0-1 -s $uri -o $tmppath >> $reportpath
     Start-Sleep -s $wsleep
 }
