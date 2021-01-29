@@ -22,6 +22,7 @@ Add-Content -Path $reportpath -Value $From
 
 for ($num = 1 ; $num -le $requests ; $num++)
 {
+    (Get-Date).datetime >> $reportpath
     curl -w "@$($csvformat)" -r 0-1 -s $uri -o $tmppath >> $reportpath
     Start-Sleep -s $wsleep
 }
