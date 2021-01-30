@@ -25,7 +25,7 @@ for ($num = 1 ; $num -le $requests ; $num++)
     $datetime = Get-Date -f s
     $datetime = [string]::join("",($datetime.Split("`n")))
     Add-Content -Path $reportpath -Value $datetime -NoNewline
-    curl -w "@$($csvformat)" -r 0-1 -s $uri -o $tmppath >> $reportpath
+    C:\WINDOWS\system32\curl.exe -w "@$($csvformat)" -r 0-1 -s $uri -o $tmppath >> $reportpath
     Start-Sleep -s $wsleep
 }
 
