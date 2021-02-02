@@ -18,7 +18,7 @@ cat report-header-csv.txt >> ${label}-report.csv
 x=$requests
 while [ $x -gt 0 ];
 do
-    date +%Y-%m-%dT%T >> ${label}-report.csv
+    echo -n `date +%Y-%m-%dT%T` >> ${label}-report.csv
     curl -w "@curl-format-csv.txt" -r 0-1 -o /dev/null -s $uri >> ${label}-report.csv
     sleep $wsleep
     x=$(($x-1))
